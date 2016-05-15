@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<body>
+<nav class="navbar navbar-default navbar-custom">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right register-login-nav">
+                <li role="presentation" ><a ui-sref="register">首页</a></li>
+                <li role="presentation" ><a ui-sref="register">导师</a></li>
+                <li role="presentation" id="loginLink"><a ui-sref="login" if-not-user>学员</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="container ng-scope">
+        <div class="row text-center center-block">
+            <h1 class="register-login-h1">OCCU</h1>
+            <h3 class="register-login-h3">多行业经验交流平台，让职场尽在掌控</h3>
+        </div>
+        <div class="row"  style="margin-top:40px">
+            <div class="col-xs-12">
+                <form class="form-horizontal ng-pristine ng-valid" ng-hide="accepted" ng-submit="submit()">
+                    <div class="form-group">
+                        <label for="spEmail" class="col-xs-12 col-sm-4 control-label"></label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input class="form-control ng-pristine ng-untouched ng-valid" id="spUsername" ng-model="formModel.username" placeholder="用户名/邮箱" ng-disabled="posting">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="spPassword" class="col-xs-12 col-sm-4 control-label"></label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="password" class="form-control ng-pristine ng-untouched ng-valid" id="spPassword" ng-model="formModel.password" placeholder="密码" ng-disabled="posting">
+                        </div>
+                    </div>
+                    <div class="form-group text-center center-block">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <p class="text-danger ng-binding ng-hide" ng-show="error" ng-bind="error"></p>
+                            <button type="submit" class="btn btn-primary register-login-button" ng-disabled="posting">Login</button>
+                            <a href="/forgot" class="pull-right">Forgot Password</a>
+                        </div>
+                    </div>
+                    <div class="form-group ng-hide" ng-show="socialLoginProviders.length">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <p>Or login with:</p>
+                            <!-- ngRepeat: provider in socialLoginProviders -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>
+
+
+

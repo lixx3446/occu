@@ -1,0 +1,6 @@
+<!-- This navbar can be inserted easily, later add controller for login/logout control etc -->
+<div ng-controller="navbarCtrl">
+    <div ng-show="!isLogged" ng-include="'/partials/navbar/navbar-notlogged.html'"></div>
+    <div ng-show="isLogged" ng-include="'/partials/navbar/navbar-logged.html'"></div>
+</div>
+     <!--******************Navbar responsive problem fixed******************-->

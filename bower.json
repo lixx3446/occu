@@ -1,0 +1,26 @@
+{
+  "name": "occu",
+  "description": "A starter project for AngularJS",
+  "version": "0.0.0",
+  "homepage": "https://github.com/angular/angular-seed",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-route": "~1.4.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-loader": "~1.4.0",
+    "angular-mocks": "~1.4.0",
+    "html5-boilerplate": "~5.2.0",
+    "stormpath-sdk-angularjs": "~0.8.0",
+    "toastr": "~2.0.3",
+    "aws-sdk-js": "~2.0.9",
+    "angular-resource": "^1.5.0",
+    "angular-xeditable": "~0.1.10",
+    "angularjs-slider": "^2.9.0",
+    "cropit": "0.5.1"
+  },
+  "resolutions": {
+    "angular": "~1.5.0"
+  }
+}

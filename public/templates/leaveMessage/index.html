@@ -1,0 +1,140 @@
+<!-- For viewing a user's profile -->
+<div style="background-image: url('images/header_image/profile_mentee_image.jpg'); height:300px; width:100%; background-repeat:no-repeat;background-size: cover;background-size: cover;" class="img-responsive"
+	<div ng-include="'/partials/navbar/'"></div>
+</div>
+
+<div class="container-fluid" ng-show="!enable">
+    <div class="public_profile_card_content">
+        Please login in
+    </div>
+</div>
+
+<div class="container-fluid" ng-show="enable">
+    <div class="col-md-12">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="leaveMessage_title text-center center-block">
+                导师预约
+            </div>
+            <div class="text-center center-block" style="margin-bottom:20px;">
+                请确认导师信息,并给导师留言确认课程与时间.<br>确认订单信息后付款.
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 col-md-offset-0" style="background-color:#f4f4f4;">
+
+            <div class="col-md-4">
+                <div class="public_profile_card_content">
+                    <div style="margin:auto;width:55px">
+                        <img ng-src={{$profile.icon}} style="width:55px;display:inline-block;">
+                    </div>
+                    <!-- 个人信息 -->
+                    <div style="text-align:center;font-size:20px;">{{$profile.nickname}}</div>
+                    <div style="text-align:center;font-size:14px;color:#9a9a9a;">
+                        <span>{{$profile.job[0].location}}. </span>
+                        <span>{{$profile.job[0].position}} </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+            <!-- 服务与定价 -->
+                <div class="public_profile_card_content">
+                    <div class="profile_header" style="font-size:20px">Course</div>
+
+                    <div class="profile_content" ng-repeat="item in ($profile.service_price || []) | filter: true" class="row">
+                        <div class="public_profile_tag" style="margin: 10px 0px;">
+                            <div class="public_profile_tag_service">
+                                <span>{{item.type}}</span>
+                            </div>
+                            <div class="public_profile_tag_price">
+                                <span>$ {{item.price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <!-- 导师日程 -->
+                <div class="public_profile_card_content">
+                    <div class="profile_header" style="font-size:20px">Availability</div>
+
+                    <div class="profile_content" ng-repeat="item in ($profile.availability || [])">
+                        <div class="public_profile_tag" style="margin: 10px 0px;">
+                            <div class="public_profile_tag_service">
+                                <span ng-repeat="value in [{'date':'Monday','index':1},
+                                                           {'date':'Tuesday','index':2},
+                                                           {'date':'Wednesday','index':3},
+                                                           {'date':'Thursday','index':4},
+                                                           {'date':'Friday','index':5},
+                                                           {'date':'Saturday','index':6},
+                                                           {'date':'Sunday','index':7}] | filter: item.day">
+                                    {{value.date}}</span>
+                            </div>
+                            <div class="public_profile_tag_price">
+                                <span>{{item.start}}:00 - {{item.end}}:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12" style="margin-top: 15px;">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 col-md-offset-0" style="background-color:#f4f4f4;">
+
+            <div class="col-md-10" style="background-color:#f4f4f4;">
+                <textarea class="message_textarea" ng-model="inputText" placeholder=" Leave a message (Mentor will reply within 24 hours)"></textarea>
+            </div>
+            <div class="col-md-2" style="background-color:#f4f4f4;">
+                <div class="message_submit">
+                    <button ng-click="postMessage(inputText);inputText='';" class="btn btn-primary" style="width:90px; background-color:#2B2C31; border-color:#2B2C31;" ng-enable="enable">留言</button>
+
+
+                    <!-- Modal -->
+                    <div id="myModal" class="modal fade" role="dialog" style="margin-top:150px;">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+
+                                <div class="modal-body" style="margin-top:30px;">
+                                    <p>您已成功向导师留言,他会收到提醒并在24小时内回复您.</p>
+                                    <p>我们会第一时间通过邮件通知您导师的回复,您也可以在个人重任中查看留言记录.</p>
+                                </div>
+                                <button type="button" class="btn btn-default btn-primary" data-dismiss="modal" style="margin-bottom:30px;">返回浏览导师</button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>

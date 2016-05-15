@@ -1,0 +1,21 @@
+<!-- For viewing a user's profile -->
+<div style="background-image: url('images/header_image/profile.png'); height:300px; width:100%; background-repeat:no-repeat;background-size: cover;" class="img-responsive">
+	<div ng-include="'/partials/navbar/'"></div>
+</div>
+
+
+<div class="container-fluid">
+
+		<div class="col-md-12">
+            <div class="col-md-1"></div>
+            <div class="col-md-2" style="margin-top:30px" ng-include="'/templates/profile/profile-menu.html'"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7" style="margin-top:140px">
+                <div ng-show="page == 'Profile'" ng-include="'/templates/profile/info.html'"></div>
+                <div ng-show="page == 'Calendar'" ng-include="'/templates/profile/calendar.html'"></div>
+                <div ng-show="page == 'Message'" ng-include="'/templates/profile/message.html'"></div>
+                <div ng-show="page == 'History'" ng-include="'/templates/profile/history.html'"></div>
+            </div>
+		</div>
+
+</div>

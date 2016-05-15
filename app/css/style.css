@@ -1,0 +1,794 @@
+/*
+Author:Root;
+Issues:responsive problem;
+*/
+
+
+body {
+    font: 14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.font_change {
+    font: 14px / 1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+
+.header,
+.marketing,
+.footer{
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.header{
+	padding-bottom: 20px;
+}
+
+.header h3{
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 40px;
+}
+
+.nav-pills>li{
+	padding-right: 20px;
+}
+
+.nav-pills>li.active>a{
+	-webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+ 
+    -webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+    -moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+ 
+    -webkit-transition: all 0.15s ease;
+    -moz-transition: all 0.15s ease;
+    -o-transition: all 0.15s ease;
+    -ms-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+}
+
+.container>h1{
+	font-size: 150px;
+
+}
+
+/*******************The index Button Style******************************/
+.btn-lg{
+	margin-top: 30px;
+	max-width: 100%;
+	margin-bottom: 50px;
+}
+.btn-default{
+}
+.btn-primary{
+	background-color: #319cc6;
+	border-color: #319cc6;
+}
+.btn-primary:hover{
+	background-color: #319cc6;
+	border-color: #319cc6;
+}
+/****************************The index h1 title**********************************/
+.h-index{
+	color: #aca075;
+}
+
+
+
+
+
+/* Add some styles 2016.1.20*/
+
+.form-control-feedback{
+    left:0;
+}
+
+@media (max-width: 768px){
+	.block-2-1{
+		height: 300px;
+		padding-top: 0;
+	}
+	.block-2-1 h2{
+		font-size: 20px;
+	}
+	.block-3-1{
+		height: 300px;
+		padding-top: 0;
+	}
+	.block-3-1 h2{
+		font-size: 20px;
+	}
+}
+
+@media (min-width: 768px){
+	.btn-lg{
+		padding:20px 20px;
+		font-size: 40px;
+	}
+	.h-index{
+		padding-top: 40px;
+		margin-bottom: 15px;
+	}
+	.intro>h1{
+		font-size: 50px;
+	}
+	.intro>ul>li{
+		font-size: 30px;
+	}
+	.navbar-default .navbar-brand{
+		color: black;   /*****************************Color*************************/
+	}
+	.navbar-default .navbar-brand:hover{
+		color: black;
+	}
+	.navbar-default .navbar-nav>li>a{
+		color: #e7e7e7;   /*****************************Color*************************/
+        font-size: 16px;
+	}
+	.navbar-default .navbar-nav>li>a:hover{
+		color: #e7e7e7;
+	}
+	.navbar-brand{
+		font-size: 50px;
+        padding: 10px 15px;
+	}
+	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+		margin-left: 5px;
+	}
+	.navbar-custom{
+        background-color:rgba(0, 0, 0, 0.0); /*set navbar background opacity*/
+        border: none;
+		font-size: 30px;
+		padding-top: 10px;
+        width: 100%;
+	}
+    .navbar{
+        margin-bottom: 10px;
+    }
+	.navbar-form-custom{
+		padding-top: -20px;
+
+	}
+	.navbar-form{
+
+    }
+/*	.form-control{
+		height: 44px;
+	}
+*/	.input-group-addon{
+		background-color: white;
+		border-right: none;
+	}
+	.navbar-form-custom .form-control{
+		border-left: none;
+	}
+	/****************************     Register and Login page       *************************/
+	.register-login-h1{
+		font-size: 108px;
+	}
+	.register-login-nav{
+		font-size: 24px;
+	}
+	.register-login-h3{
+		font-size: 21px;
+	}
+	/***************学员为何选择OCCU的字体大小***************/
+
+}
+
+
+.block-1-1{
+	height: 350px;
+	color:white;
+}
+.block-1-2{
+
+}
+.block-1-3{
+
+}
+
+.block-2-1{
+	height: 350px;
+	line-height: 2.5;
+}
+.block-3-1{
+	height: 350px;
+	line-height: 2.5;
+}
+
+
+.block-4-1{
+	height: 350px;
+	color: white;
+}
+
+
+
+
+
+.intro{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.intro>h1{
+	padding-bottom: 10px;
+
+}
+.intro>p{
+	font-size: 30px;
+	line-height: 1.5;
+	border-bottom: solid 1px white;
+}
+.intro>ul{
+	line-height: 1.5;
+}
+.intro>ul>li{
+	line-height: 1.5;
+	border-bottom: solid 1px white;
+	padding-bottom: 5px;
+}
+
+.about>h2{
+	padding-bottom: 20px;
+}
+
+.input-xs {
+    height: 22px;
+    padding: 5px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+/*************************Register and Login Page*****************************/
+.register-login-button{
+    padding: 10px 50px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+.registerLoginPanel{
+    background-color: aliceblue;
+    width: 500px;
+    margin: auto;
+    height: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.registerBackground{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url('/images/login_register/register.jpg');
+    height:100%;
+    background-size: 100% 100%;
+
+    
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(1px);
+}
+
+.loginBackground{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url('/images/login_register/login.jpg');
+    height:100%;
+    background-size: 100% 100%;
+
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(1px);
+}
+
+
+.loginInput {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+
+
+
+
+
+/*#f4f4f4*/
+/*#3F4149 #2B2C31*/
+/*#D7CEB1 #ACA075*/
+/***************************************************************************/
+/********************outman start to work on ui*****************************/
+/***************************************************************************/
+
+/*apply for mentor*/
+.apply_mentor_menu {
+    margin:auto;
+    width:120px;
+    margin-top: 150px;
+}
+.apply_mentor_menu_block {
+    width:160px;
+    margin:auto;
+    border-left: 1.5px solid;
+    padding-left: 20px;
+    border-color: #319cc6;
+}
+.apply_mentor_header {
+    text-align: center;
+}
+.apply_mentor_subheader {
+    border-bottom: 2px solid #319cc6;
+    padding-bottom: 3px;
+    display: inline-block;
+}
+.apply_mentor_panel {
+    background-color: #f4f4f4;
+    margin-bottom: 40px;
+    padding: 5px 20px 20px 20px;
+    border-radius: 5px;
+}
+.apply_mentor_add_delete_div{
+    float: right;
+    margin: -10px 0px 0px 0px;
+}
+.apply_mentor_add_delete_button {
+    color: #319cc6;
+    border: 1px solid #319cc6;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0px 10px;
+}
+.apply_mentor_submit_button_div {
+    margin:auto;
+    width: 200px;
+}
+.apply_mentor_submit_button {
+    width:200px;
+    height:60px;
+    background-color:#319cc6;
+    color:white;
+    border-radius: 4px;
+    border: none;
+    font-size: 24px;
+}
+
+
+/*browse mentor*/
+.browse_menu {
+    margin:auto;
+    width:120px;
+    margin-top: 80px;
+}
+.browse_menu_block {
+    width:200px;
+    margin:auto;
+    padding-left: 20px;
+}
+.browse_menu_title {
+    border-bottom: 1.5px solid #319cc3;
+    padding-bottom: 3px;
+}
+.browse_menu_checkbox {
+    font-family: Georgia;
+    font-size: 16px;
+    margin: 5px 0px;
+}
+.browse_content {
+    margin-top: 80px;
+}
+.browse_profile_nametag {
+    text-align: center;
+}
+.browse_profile_lower {
+    background-color: #f4f4f4;
+    margin-top: -6px;
+    margin-bottom: 20px;
+}
+.browse_profile_price {
+    margin: 0px 0px;
+    font-size: 12px;
+    color: black;
+    font-weight: bold;
+}
+.browse_profile_detail_button {
+    padding:5px 15px;
+    background-color:#319cc3;
+    color:#ffffff;
+    border-radius: 8px;
+    border: none;
+    font-size: 12px;
+}
+
+
+/*navbar*/
+.navbar_li {
+    text-align: center;
+}
+.dropdown-toggle {
+    cursor: pointer;
+}
+.dropdown-menu {
+    border-color: #f4f4f4;
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color:rgba(0, 0, 0, 0.0);
+    color: #e7e7e7;
+}
+
+.nav .open>a:hover {
+    background-color: transparent;
+    border-color: #337ab7;
+}
+
+/*profile*/
+.profile_menuDiv{
+    padding: 10px 15px;
+    display: block;
+    position: relative;
+    margin: 10px 0px;
+    background-color: #f4f4f4;
+    color: black;
+}
+.profile_main_body{
+    background-color: #f4f4f4;
+}
+.profile_panel{
+    padding: 20px 30px;
+}
+.profile_edit_button {
+    color:#9a9a9a;
+    font-size:14px;
+    margin-top: 15px;
+}
+.profile_header{
+    font-size: 24px;
+    color:black;
+    border-bottom: 2px solid;
+    padding-bottom: 3px;
+    border-color: #ffffff;
+}
+.profile_content{
+    margin: 10px;
+    font-size: 16px;
+}
+.profile_add_delete_div{
+    float: right;
+    margin: -10px 0px 0px 0px;
+}
+.profile_add_delete{
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0px 10px;
+}
+.editable-wrap{
+    width:140px;
+    margin:5px;
+}
+.profile_content_tr{
+    margin:10px;
+    font-size: 16px;
+}
+.profile_content_td{
+    width:160px;
+    margin:10px;
+}
+.profile_content_td_normal{
+    width:160px;
+    margin:0px 10px;
+}
+.profile_content_td_short{
+    width:80px;
+    margin:0px 10px;
+}
+.profile_content_td_long{
+    width:200px;
+    margin:0px 10px;
+}
+.profile_content_only_for_radio_button_adjustment >span{
+    display: block;
+}
+.profile_content_only_for_radio_button_adjustment >span>div>span{
+    margin-left:30px;
+}
+.profile_content_only_for_radio_button_adjustment >span>div>span>label{
+    width:81px;
+}
+.profile_content_icons{
+}
+.profile_content_icon{
+    height:60px;
+    margin:19px;
+    z-index: -1;
+}
+.profile_descriptForm_only_for_input_adjustment>span>div>textarea{
+    width: 600px;
+}
+.profile_descriptShortForm_only_for_input_adjustment>span>div>textarea{
+    width: 600px;
+}
+.self_description_pop_button{
+    font-size: 12px;
+    color: #9a9a9a;
+    margin-left: 530px;
+    cursor: pointer;
+}
+.profile_descriptForm_popup{
+    position: absolute;
+    font-size: 13px;
+    color: white;
+    background-color: #319cc6;
+    width: 370px;
+    height: 240px;
+    border: 1px solid #b7b7b7;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: -70px;
+    margin-left: 200px;
+}
+.profile_descriptShortForm_popup{
+    position: absolute;
+    font-size: 13px;
+    background-color: white;
+    width: 370px;
+    height: 140px;
+    border: 1px solid #b7b7b7;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 70px;
+    margin-left: 200px;
+}
+
+
+/*public profile*/
+.public_profile_title{
+    border: 1px solid #ACA075;
+    border-radius: 6px;
+    vertical-align: middle;
+    text-align: center;
+    width: 100px;
+    height: 33px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+.public_profile_panel{
+    background-color: #f4f4f4;
+    padding: 20px 30px;
+    margin-bottom: 8px;
+}
+.public_profile_card{
+    margin-top: -170px;
+}
+.public_profile_card_content{
+    background-color: #f4f4f4;
+    padding: 20px 30px;
+}
+.public_profile_tag{
+    background-color: white;
+    border-radius: 6px;
+    width:250px;
+    margin: 20px 0px;
+}
+.public_profile_tag_service{
+    margin-left: 10px;
+    display:inline-block;
+    vertical-align: middle;
+}
+.public_profile_tag_price{
+    float:right;
+    margin-right:10px;
+    display:inline-block;
+    vertical-align: middle;
+}
+
+
+
+/*message board*/
+.message_category{
+    margin: 30px 10px;
+}
+.message_from_username{
+    color: #9a9a9a;
+    margin: 3px 0px;
+}
+.message_message{
+    display: inline-block;
+    background-color: white;
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.message_create_on{
+    display: inline-block;
+    color: #9a9a9a;
+    font-size: 12px;
+    margin-left: 5px;
+    vertical-align: bottom;
+}
+.message_detail_menu_bar{
+    position:absolute;
+    margin-top: -35px;
+}
+.message_detail_title{
+    text-align:center;
+    width:550px;
+    display: inline-block;
+    font-size:20px;
+    border-bottom: 2px solid #ffffff;
+}
+#all_message{
+    padding:0px 0px 80px 0px;
+}
+
+.message_panel{
+    padding: 70px 30px 20px 30px;
+}
+.message_return_button{
+    display: inline-block;
+    margin-right: 20px;
+}
+.message_input_box{
+    display: inline-block;
+    margin: 0px 30px;
+    width:500px;
+}
+.message_input_submit{
+    display: inline-block;
+}
+.message_input_box>input{
+    border-color: #ACA075;
+}
+.leaveMessage_title{
+    width:160px;
+    font-size:30px;
+    border-bottom:2px solid;
+    color:#ACA075;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.message_textarea{
+    display: inline-block;
+    margin: 20px 10px 10px 10px;
+    width:100%;
+    height: 70px;
+}
+.message_submit{
+    display: inline-block;
+    margin: 40px 0px 0px 40px;
+}
+
+
+
+/* pay */
+.paypal{
+    width:171px; /*same length as the paypal button width*/
+    height:400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+}
+
+
+
+/* navi */
+.navButtonHome{
+	background-color: transparent;
+    color: #319cc6;
+    padding: 8px 20px;
+}
+
+.navButtonRegister{
+	background-color: transparent;
+	border-color: #319cc6;
+    color: #319cc6;
+    padding: 8px 20px;
+    border-radius: 10px;
+}
+
+.navButtonLogin{
+	background-color: #319cc6;
+	border-color: #319cc6;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 10px;
+}
+
+
+/* universal */
+.check_box {
+    display:none;
+}
+.check_box + label{
+    vertical-align: bottom;
+    background:url('../images/button/check-box.png') no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+.check_box:checked + label{
+    vertical-align: bottom;
+    background:url('../images/button/check-box-checked.png') no-repeat;
+    background-size: 16px 16px;
+    height: 16px;
+    width: 16px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+.checklist_option{
+    margin-bottom:2px;
+    display:inline;
+}
+
+
+.modal-content{
+    border-radius: 0px;
+    text-align: center;
+}
+
+pre{
+    border:none;
+    word-wrap: break-word;
+}
+
+
+.tag{
+    background-color: #319cc3;
+    border-radius: 6px;
+    padding: 3px 10px;
+    color: white;
+    font-size: 12px;
+}
+
+.modalWindow{
+    border: 2px solid #319cc6;
+    border-radius: 4px;
+}
+
+
+.fakeButton{
+    background-color: transparent;
+    color: #319cc6;
+    padding: 8px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;    
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    background-image: none;
+    border: 1px solid #319cc6;
+    margin: auto;
+}
+
+.cropit-preview-image-container {
+    cursor: move;
+}
+/***************************************************************************/
+/********************outman stop working on ui******************************/
+/***************************************************************************/

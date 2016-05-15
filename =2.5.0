@@ -1,0 +1,16 @@
+
+> bufferutil@1.2.1 install E:\webapp\whispering-crag-1472\node_modules\bufferutil
+> node-gyp rebuild
+
+
+E:\webapp\whispering-crag-1472\node_modules\bufferutil>if not defined npm_config_node_gyp (node "E:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node  rebuild ) 
+
+> utf-8-validate@1.2.1 install E:\webapp\whispering-crag-1472\node_modules\utf-8-validate
+> node-gyp rebuild
+
+
+E:\webapp\whispering-crag-1472\node_modules\utf-8-validate>if not defined npm_config_node_gyp (node "E:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin\\..\..\node_modules\node-gyp\bin\node-gyp.js" rebuild )  else (node  rebuild ) 
+
+> angular-seed@0.0.0 postinstall E:\webapp\whispering-crag-1472
+> bower install
+

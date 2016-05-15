@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<body ng-app="myApp.mentorDetail">
+
+
+<div class="container" style="margin-top:20px;"  ng-controller="mentorDetailCtrl">
+
+  <div class="row clearfix" style="margin-bottom:10px;">
+    <div class="controls form-inline form-group">
+
+      <h1>basic info</h1>
+      <div class="col-md-2">
+        <p>firstname: {{fName}}</p>
+      </div>
+
+
+      <div class="col-md-2">
+        <p>lastname: {{lName}}</p>
+      </div>
+      <br>
+      <br>
+
+      <div class="col-md-2">
+        <p>username: {{nickname}}</p>
+      </div>
+      <br>
+      <br>
+
+
+
+
+      <h1>education background</h1>
+      <div class="row clearfix">
+        <table class="table table-bordered table-hover table-condensed">
+          <thead>
+          <tr>
+            <th>  University  </th>
+            <th> Year </th>
+            <th> Major </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in education">
+            <td> {{item.university}} </td>
+            <td> {{item.year}} </td>
+            <td> {{item.major}} </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <br>
+
+
+      <h1>interview experience</h1>
+      <div ng-repeat="item in interviewExp">
+        <span style="display: inline;">{{item.company}}</span>
+      </div>
+      <br>
+      <br>
+
+      <h1>working experience</h1>
+      <div class="row clearfix">
+        <table class="table table-bordered table-hover table-condensed">
+          <thead>
+          <tr>
+            <th>  Time  </th>
+            <th> Company </th>
+            <th> Position </th>
+            <th> Location </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in workingExp">
+            <td> {{item.time}} </td>
+            <td> {{item.company}} </td>
+            <td> {{item.position}} </td>
+            <td> {{item.location}} </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <br>
+
+
+      <h1>self intro</h1>
+      <div class="col-md-2">
+        <p>{{seldescdetail}}</p>
+      </div>
+      <br>
+      <br>
+
+      <h1>self intro simple version</h1>
+      <div class="col-md-2">
+        <p>{{seldescsimple}}</p>
+      </div>
+      <br>
+      <br>
+
+
+      <h1>time availability</h1>
+      <div ng-repeat="item in availability">
+        <select ng-model="item.day" disabled>
+          <option value="" disabled="disabled" selected="selected">day</option>
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+          <option value="7">Sunday</option>
+        </select>
+
+        <select ng-model="item.start" disabled>
+          <option value="" disabled="disabled" selected="selected">start time</option>
+          <option value="0">0:00</option>
+          <option value="1">1:00</option>
+          <option value="2">2:00</option>
+          <option value="3">3:00</option>
+          <option value="4">4:00</option>
+          <option value="5">5:00</option>
+          <option value="6">6:00</option>
+          <option value="7">7:00</option>
+          <option value="8">8:00</option>
+          <option value="9">9:00</option>
+          <option value="10">10:00</option>
+          <option value="11">11:00</option>
+          <option value="12">12:00</option>
+          <option value="13">13:00</option>
+          <option value="14">14:00</option>
+          <option value="15">15:00</option>
+          <option value="16">16:00</option>
+          <option value="17">17:00</option>
+          <option value="18">18:00</option>
+          <option value="19">19:00</option>
+          <option value="20">20:00</option>
+          <option value="21">21:00</option>
+          <option value="22">22:00</option>
+          <option value="23">23:00</option>
+        </select>
+
+        <select ng-model="item.end" disabled>
+          <option value="" disabled="disabled" selected="selected">end time</option>
+          <option value="0">0:00</option>
+          <option value="1">1:00</option>
+          <option value="2">2:00</option>
+          <option value="3">3:00</option>
+          <option value="4">4:00</option>
+          <option value="5">5:00</option>
+          <option value="6">6:00</option>
+          <option value="7">7:00</option>
+          <option value="8">8:00</option>
+          <option value="9">9:00</option>
+          <option value="10">10:00</option>
+          <option value="11">11:00</option>
+          <option value="12">12:00</option>
+          <option value="13">13:00</option>
+          <option value="14">14:00</option>
+          <option value="15">15:00</option>
+          <option value="16">16:00</option>
+          <option value="17">17:00</option>
+          <option value="18">18:00</option>
+          <option value="19">19:00</option>
+          <option value="20">20:00</option>
+          <option value="21">21:00</option>
+          <option value="22">22:00</option>
+          <option value="23">23:00</option>
+        </select>
+      </div>
+
+
+      <h1>service & price</h1>
+      <div ng-repeat="item in servicePrice | filter:true">
+        <label>{{item.type}}</label>
+
+        <label>price: </label>
+        <span>{{item.price}}</span>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+</body>
+</html>
+
+
+

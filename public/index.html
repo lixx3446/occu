@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="description" content="">
+
+	  <!-- Title to be changed? or even dynamic? -->
+	  <title>OCCU</title>
+
+	  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+	  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  	  <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.min.css">
+	  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	  <!-- I am not sure where this css/style.css come from -->
+	  <link rel="stylesheet" href="css/style.css">
+	  <!-- app.css the cutomized css -->
+	  <link rel="stylesheet" href="app.css">
+
+	</head>
+	<body ng-app="occu">
+
+	<div ui-view></div>
+
+		<!-- compatibility? -->
+		<script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+		<!-- Angular includes -->
+ 	    <script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+		<!-- ressource allow easy get post RESTful api handling -->
+		<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+		<script src="//code.angularjs.org/1.5.0/angular-cookies.js"></script>
+		<script src="//code.angularjs.org/1.5.0/angular-sanitize.js"></script>
+
+		<script src="bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+	  	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	  	<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+		<!-- aws used to store file-->
+		<script src="bower_components/aws-sdk-js/dist/aws-sdk.min.js"></script>
+
+        <!-- cropit -->
+        <script src="bower_components/cropit/dist/jquery.cropit.js"></script>
+
+		<!-- Custom script add here -->
+	  	<!-- It is also possible to use script to merge and minify all scripts then include the merged script for once and all; to be added later -->
+	  	<script src="js/occu.js"></script> <!-- general things -->
+	  	<script src="js/resources/users.js"></script> <!-- general things -->
+	  	<script src="js/resources/messages.js"></script> <!-- general things -->
+	  	<script src="js/controllers/login.js"></script>
+	  	<script src="js/controllers/register.js"></script>
+	  	<script src="js/controllers/dashboard.js"></script>
+        <script src="js/controllers/profile.js"></script>
+        <script src="js/controllers/profileForm.js"></script>
+		<script src="js/controllers/publicProfile.js"></script>
+		<script src="js/controllers/leaveMessage.js"></script>
+		<script src="js/controllers/pay.js"></script>
+		<script src="js/controllers/browse.js"></script>
+        <script src="js/controllers/vipInfo.js"></script>
+		<script src="js/controllers/apply.js"></script>
+	  	<script src="js/controllers/navbar.js"></script>
+        <script src="js/controllers/message.js"></script>
+        <script src="js/controllers/reset.js"></script>
+        <script src="js/controllers/forget.js"></script>
+		<!-- navbar controller to be added for login toggle-->
+
+	</body>
+</html>
+<!-- This is base page of whole web site, only used to include script -->

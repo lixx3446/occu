@@ -1,0 +1,173 @@
+<!-- For viewing a user's profile -->
+<div style="background-image: url('images/header_image/profile_mentee_image.jpg'); height:300px; width:100%; background-repeat:no-repeat;background-size: cover;background-size: cover;" class="img-responsive"
+	<div ng-include="'/partials/navbar/'"></div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="col-md-12">
+        <div class="col-md-1"></div>
+
+        <div class="col-md-7" style="margin-top:60px">
+            <div class="public_profile_title">关于导师</div>
+
+            <div>
+                <!-- 教育背景 -->
+                <div class="public_profile_panel">
+                    <div class="profile_header">教育背景</div>
+
+                    <form>
+                        <table class="profile_content">
+                            <tbody>
+                            <tr>
+                                <th><div class="profile_content_td_normal">University</div></th>
+                                <th><div class="profile_content_td_normal">Year</div></th>
+                                <th><div class="profile_content_td_normal">Major</div></th>
+                                <th><div class="profile_content_td_normal">Degree</div></th>
+                            </tr>
+                            <tr ng-repeat="item in ($profile.education || [])">
+                                <td><div class="profile_content_td_normal">{{item.university}}</div></td>
+                                <td><div class="profile_content_td_normal">{{item.year}}</div></td>
+                                <td><div class="profile_content_td_normal">{{item.major}}</div></td>
+                                <td><div class="profile_content_td_normal">{{item.degree}}</div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+
+
+                <!-- 工作经历 -->
+                <div class="public_profile_panel">
+                    <div class="profile_header">工作经历</div>
+
+                    <form>
+                        <table class="profile_content">
+                            <tbody>
+                            <tr>
+                                <th><div class="profile_content_td_short">Time</div></th>
+                                <th><div class="profile_content_td_long">Company</div></th>
+                                <th><div class="profile_content_td_long">Position</div></th>
+                                <th><div class="profile_content_td_short">Location</div></th>
+                            </tr>
+                            <tr ng-repeat="elem in ($profile.job || [])">
+                                <td><div class="profile_content_td_short">{{elem.time}}</div></td>
+                                <td><div class="profile_content_td_long">{{elem.company}}</div></td>
+                                <td><div class="profile_content_td_long">{{elem.position}}</div></td>
+                                <td><div class="profile_content_td_short">{{elem.location}}</div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+
+
+
+                <!-- 面试经历 -->
+                <div class="public_profile_panel">
+                    <div class="profile_header">面试经历</div>
+
+                    <form>
+                        <div class="profile_content" style="display: inline-block;" ng-repeat="elem in ($profile.interview || [])">
+                            <span class="tag">{{elem.company}}</span>
+                        </div>
+                    </form>
+                </div>
+
+
+
+
+                <!-- 自我介绍 -->
+                <div class="public_profile_panel">
+                    <div class="profile_header">自我介绍</div>
+
+                    <form>
+                        <div class="profile_content" ng-bind-html="HTMLself_description_detail()"></div>
+                    </form>
+                </div>
+
+
+                <!-- 一句话简介 -->
+                <div class="public_profile_panel">
+                    <div class="profile_header">一句话简介</div>
+
+                    <form>
+                        <div class="profile_content" ng-bind-html="HTMLself_description_simple()"></div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="col-md-3" style="margin-top:0px">
+            <div class="public_profile_card">
+                <div style="margin:auto;width:100px">
+                    <img ng-src={{$profile.icon}} style="height:100px;display:inline-block;">
+                </div>
+                <!-- 个人信息 -->
+                <div class="public_profile_card_content">
+                    <div style="text-align:center;font-size:32px;">{{$profile.nickname}}</div>
+
+                    <div style="text-align:center;font-size:19px;color:#9a9a9a;">
+                        <span>{{$profile.job[0].location}}. </span>
+                        <span>{{$profile.job[0].position}} </span>
+                    </div>
+                </div>
+
+                <!-- 服务与定价 -->
+                <div class="public_profile_card_content">
+                    <div class="profile_header">服务定价</div>
+
+                    <div class="profile_content" ng-repeat="item in ($profile.service_price || []) | filter: true" class="row">
+                        <div class="public_profile_tag">
+                            <div class="public_profile_tag_service">
+                                <span>{{item.type}}</span>
+                            </div>
+                            <div class="public_profile_tag_price">
+                                <span>$ {{item.price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- 导师日程 -->
+                <div class="public_profile_card_content">
+                    <div class="profile_header ">导师日程</div>
+
+                    <div class="profile_content" ng-repeat="item in ($profile.availability || [])">
+                        <div class="public_profile_tag">
+                            <div class="public_profile_tag_service">
+                                <span ng-repeat="value in [{'date':'Monday','index':1},
+                                                           {'date':'Tuesday','index':2},
+                                                           {'date':'Wednesday','index':3},
+                                                           {'date':'Thursday','index':4},
+                                                           {'date':'Friday','index':5},
+                                                           {'date':'Saturday','index':6},
+                                                           {'date':'Sunday','index':7}] | filter: item.day">
+                                    {{value.date}}</span>
+                            </div>
+                            <div class="public_profile_tag_price">
+                                <span>{{item.start}}:00 - {{item.end}}:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 预约button -->
+                <div class="public_profile_card_content text-center center-block">
+                    <a ui-sref="leaveMessage({username: $profile.username})"><button type="submit" class="btn btn-primary" style="width:90px;height:30px;">预约</button></a>
+                </div>
+
+                <!-- feedback -->
+                <div class="public_profile_card_content text-center center-block">
+                    <div>0人见过</div>
+                    <div>0人收藏</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

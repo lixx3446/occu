@@ -1,0 +1,104 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">basic info</h2>
+  </div>
+  <div class="panel-body">
+    <div class="form-group row">
+      <div class="col-sm-3">
+        <input class="form-control input-sm"
+        placeholder="First Name" ng-model="user.firstname"></input>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3">
+      <input class="form-control input-sm"
+      placeholder="Telephone" ng-model="user.telephone"></input>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-3">
+      <input class="form-control input-sm"
+      placeholder="Nick Name" ng-model="user.nickname"></input>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-3">
+      <label class="form-label">Gender</label>
+      <select ng-model="user.gender">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      </div>
+    </div>
+  </div> <!-- End panel body -->
+</div> <!-- End panel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Education</h2>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="item in education">
+      <div class="row">
+        <div class="col-xs-3">
+          <input type="text" placeholder="University" ng-model="item.university" class="input-sm form-control">
+        </div>
+
+        <div class="col-xs-3">
+          <input type="text" placeholder="Degree" ng-model="item.degree" class="input-sm form-control">
+        </div>
+
+        <div class="col-xs-3">
+          <input type="text" placeholder="Major" ng-model="item.major" class="input-sm form-control">
+        </div>
+
+        <div class="col-xs-3">            
+          <!-- to be changed to year picker-->
+          <input type="text" placeholder="Year" ng-model="item.year" class="input-sm form-control">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 col-sm-offset-10">
+    <button ng-click="addMoreEducation()"
+    class="btn btn-link">+Add more</button>
+    </div>
+  </div> <!-- End panel body -->
+</div> <!-- End panel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Working experience</h2>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="item in workingExp">
+      <input type="text" placeholder="Company" ng-model="item.company" type="text" class="form-control input-sm">
+      <input type="text" placeholder="Industry" ng-model="item.industry" type="text" class="form-control input-sm">
+      <input type="text" placeholder="Position" ng-model="item.position" type="text" class="form-control input-sm">
+      <input type="text" placeholder="Location" ng-model="item.location" type="text" class="form-control input-sm">
+
+      <!-- to be changed to year picker-->
+      <input type="number" placeholder="Year" ng-model="item.year" class="form-control input-sm">
+    </div>
+    <div class="col-sm-2 col-sm-offset-10">
+    <button ng-click="addMoreWorkingExp()"
+    class="btn btn-link">+Add more</button>
+    </div>
+  </div> <!-- End panel body -->
+</div> <!-- End panel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Interview experience</h2>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="item in interviewExp">
+      <input type="text" placeholder="Company" ng-model="item.company" type="text" class="form-control input-sm">
+    </div>
+
+    <div class="col-sm-2 col-sm-offset-10">
+    <button ng-click="addMoreInterviewExp()"
+    class="btn btn-link">+Add more</button>
+    </div>          
+  </div> <!-- End panel body -->
+</div> <!-- End panel -->

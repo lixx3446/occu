@@ -1,0 +1,139 @@
+<div style="background-image: url('images/header_image/browse_image.png'); height:300px; width:100%; background-repeat:no-repeat;background-size: cover;" class="img-responsive">
+    <div ng-include="'/partials/navbar/'"></div>
+    <div style="height:150px;display:flex;align-items:center;">
+        <div style="margin:auto;">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4">
+                    <img class="img-responsive" src="images/front_page/white_logo.png" style="width:600px;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-xs-4 col-xs-offset-4">
+                    <div style="text-align:center;color:white;margin:50px 0px 0px 0px;font-size:20px;">多行业经验分享平台,让梦想尽在掌控</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+        <!--left column-->
+        <div class="col-md-4 col-md-offset-0">
+            <div class="browse_menu">
+                <div class="browse_menu_block">
+                    <h3 class="browse_menu_title" style="color:black">毕业学校</h3>
+                    <div style="width:200px; height:300px; overflow:auto;">
+                        <div ng-repeat="univ in univs | orderBy:'name'" style="white-space: nowrap;">
+                            <div class="browse_menu_checkbox" ng-click="setEducationChecked(univ.variable)">
+                                <input class="check_box" type="checkbox" ng-model="criteria.Education[univ.variable]">
+                                <label style="margin-bottom: 3px;"></label>
+                                <div class="checklist_option tag">{{univ.name}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="browse_menu_block">
+                    <h3 class="browse_menu_title" style="color:#319cc3">就职公司</h3>
+                    <div class="browse_menu_checkbox" ng-click="setJobChecked('com1')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Job.com1"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com1</div>
+                    </div>
+                    <div class="browse_menu_checkbox" ng-click="setJobChecked('com2')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Job.com2"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com2</div>
+                    </div>
+                    <div class="browse_menu_checkbox" ng-click="setJobChecked('com3')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Job.com3"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com3</div>
+                    </div>
+                    <div class="browse_menu_checkbox" ng-click="setJobChecked('com4')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Job.com4"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com4</div>
+                    </div>
+                </div>
+
+                <div class="browse_menu_block">
+                    <h3 class="browse_menu_title" style="color:#319cc3">面试经历</h3>
+                    <div class="browse_menu_checkbox" ng-click="setInterviewChecked('com1')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Interview.com1"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com1</div>
+                    </div>
+                    <div class="browse_menu_checkbox" ng-click="setInterviewChecked('com2')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Interview.com2"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com2</div>
+                    </div>
+                    <div class="browse_menu_checkbox" ng-click="setInterviewChecked('com3')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Interview.com3"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com3</div>
+                    </div>
+                    <div class="browse_menu_checkbox" ng-click="setInterviewChecked('com4')">
+                        <input class="check_box" type="checkbox" ng-model="criteria.Interview.com4"><label></label>
+                        <div class="checklist_option">&nbsp;&nbsp;com4</div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="browse_menu_block">
+                    <h3 class="browse_menu_title" style="color:#319cc3">地区</h3>
+                    <div style="width:200px; height:300px; overflow:auto;">
+                        <div ng-repeat="location in locations | orderBy:'name'" style="white-space: nowrap;">
+                            <div class="browse_menu_checkbox" ng-click="setLocationChecked(location.variable)">
+                                <input class="check_box" type="checkbox" ng-model="criteria.Location[location.variable]"><label></label>
+                                <div class="checklist_option tag">{{location.name}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<button type="button" ng-click="search()">Search</button>-->
+        </div>
+
+
+        <!--right column-->
+		<div class="col-md-7 col-md-offset-0" style="margin-left:-40px;">
+            <div class="col-md-11 col-md-offset-0">
+
+                <div class="browse_content">
+                    <div class="browse_profile" ng-repeat="mentor in mentors | filter: filterByCriteria">
+                        <div class="browse_profile_lower col-md-12 col-md-offset-0" style="margin-bottom:50px;padding-left:0px;min-height:100px;display:flex;align-items:center;">
+                            <div class="col-md-2 col-md-offset-0" style="min-height:100px;display:flex;align-items:center;padding-left:0px;">
+                                <img ng-src={{mentor.icon}} style="width:100px;margin:0px;">
+                            </div>
+
+                            <div class="col-md-2 col-md-offset-0 browse_profile_nametag" style="min-height:100px;display:flex;align-items:center;">
+                                <div>
+                                    <div style="font-size:16px;font-family:Georgia">{{mentor.nickname}}</div>
+                                    <div style="margin-top: 5px;">
+                                        <div>0 人见过</div>
+                                        <div>0 人收藏</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-md-offset-0" style="min-height:100px;display:flex;align-items:center;">
+                                <div>
+                                    <div style="color:#319cc3; font-size:14px; margin-bottom: 4px; font-weight:bold;">{{mentor.self_description_simple}}</div>
+                                    <div style="font-size:14px;margin-bottom:4px;"><span ng-repeat="j in mentor.job">{{j.company}}. </span></div>
+                                    <div style="font-size:14px;margin-bottom:4px;color:#9a9a9a">Roles: <span ng-repeat="j in mentor.job">{{j.position}}. </span></div>
+                                    <div class="browse_profile_price">From $0</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2 col-md-offset-0" style="min-height:100px;display:flex;align-items:center;">
+                                <a ui-sref='publicProfile({username: "{{mentor.username}}"})'>
+                                    <button class="browse_profile_detail_button">了解更多</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+		</div>
+	</div>
+</div>

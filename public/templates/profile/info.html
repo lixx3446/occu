@@ -1,0 +1,290 @@
+<div class="profile_main_body">
+    <!-- 基本信息 -->
+    <div class="profile_panel">
+        <div class="profile_header">
+            个人信息
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="personalForm.$show()" ng-show="$parent.editable && !personalForm.$visible">Edit</button>
+            <button type="button" class="btn-link pull-right profile_edit_button" 
+            ng-click="goApply()"
+            ng-show="$parent.editable && !personalForm.$visible && !$profile.is_mentor">导师资质</button>
+        </div>
+
+        <form  editable-form name="personalForm" onbeforesave="saveData($data)" onshow="checkPersonal()">
+            <div class="profile_content">
+                Firstname: <span editable-text="$profile.firstname" e-form="personalForm" e-name="firstname">{{$profile.firstname}}</span>
+            </div>
+            <div class="profile_content">
+                Lastname: <span editable-text="$profile.lastname" e-form="personalForm" e-name="lastname">{{$profile.lastname}}</span>
+            </div>
+            <div class="profile_content">
+                Mobile: <span editable-text="$profile.phone" e-form="personalForm" e-name="phone">{{$profile.phone}}</span>
+            </div>
+            <div class="profile_content">
+                Username: <span editable-text="$profile.nickname" e-form="personalForm" e-name="nickname">{{$profile.nickname}}</span>
+            </div>
+            <div class="profile_content">
+                Gender: <span editable-radiolist="$profile.gender" e-form="personalForm" e-name="gender" e-ng-options="s.value as s.text for s in genders" e-ng-click="checkGender($data)">{{ showGender() }}</span>
+            </div>
+            <div class="profile_content profile_content_only_for_radio_button_adjustment">
+                Icon:
+                <span class="profile_content_icons">
+                    <div ng-repeat="icon in icons" style="display:inline-block;" ng-show="personalForm.$visible">
+                        <img ng-src="{{icon.value}}" class="profile_content_icon">
+                    </div>
+                </span>
+                <div editable-radiolist="$profile.icon" e-name="icon" e-ng-options="s.value as s.text for s in icons">
+                    <img ng-src="{{$profile.icon}}" style="height:60px;margin-left: 50px;margin-top: -30px;">
+                </div>
+            </div>
+
+            <div class="profile_content" ng-show="personalForm.$visible">
+                <button type="submit" class="btn btn-primary" ng-disabled="personalForm.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="personalForm.$waiting" ng-click="personalForm.$cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- 教育背景 -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            教育背景
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="eduForm.$show()" ng-show="$parent.editable && !eduForm.$visible">Edit</button>
+        </div>
+
+        <form editable-form name="eduForm" onaftersave="saveEdu($data)" onshow="storeEdu()" oncancel="cancelEdu()">
+            <table class="profile_content">
+                <tbody>
+                    <tr ng-repeat="item in ($profile.education || [])">
+                        <td><div class="profile_content_td" editable-text="item.university" e-form="eduForm" e-name="education" e-placeholder="university">{{item.university}}</div></td>
+                        <td><div class="profile_content_td" editable-text="item.year" e-form="eduForm" e-name="year" e-placeholder="year">{{item.year}}</div></td>
+                        <td><div class="profile_content_td" editable-text="item.major" e-form="eduForm" e-name="major" e-placeholder="major">{{item.major}}</div></td>
+                        <td><div class="profile_content_td" editable-text="item.degree" e-form="eduForm" e-name="degree" e-placeholder="degree">{{item.degree}}</div></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="profile_content" ng-show="eduForm.$visible">
+                <div class="profile_add_delete_div">
+                    <span ng-click="addEdu()" class="profile_add_delete">+ Add More</span>
+                    <span ng-click="deleteEdu()" class="profile_add_delete">- Delete Last</span>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="eduForm.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="eduForm.$waiting" ng-click="eduForm.$cancel()">Cancel</button>
+
+            </div>
+        </form>
+    </div>
+
+
+    <!-- 工作经历 -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            工作经历
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="jobForm.$show()" ng-show="$parent.editable && !jobForm.$visible">Edit</button>
+        </div>
+
+        <form editable-form name="jobForm" onaftersave="saveJob($data)" onshow="storeJob()" oncancel="cancelJob()">
+            <table class="profile_content">
+                <tbody>
+                    <tr ng-repeat="elem in ($profile.job || [])">
+                        <td><div class="profile_content_td" editable-text="elem.time" e-form="jobForm" e-name="time" e-placeholder="time">{{elem.time}}</div></td>
+                        <td><div class="profile_content_td" editable-text="elem.company" e-form="jobForm" e-name="company" e-placeholder="company">{{elem.company}}</div></td>
+                        <td><div class="profile_content_td" editable-text="elem.position" e-form="jobForm" e-name="position" e-placeholder="position">{{elem.position}}</div></td>
+                        <td><div class="profile_content_td" editable-text="elem.location" e-form="jobForm" e-name="location" e-placeholder="location">{{elem.location}}</div></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="profile_content" ng-show="jobForm.$visible">
+                <div class="profile_add_delete_div">
+                    <span ng-click="addJob()" class="profile_add_delete">+ Add More</span>
+                    <span ng-click="deleteJob()" class="profile_add_delete">- Delete Last</span>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="jobForm.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="jobForm.$waiting" ng-click="jobForm.$cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- 面试经历 -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            面试经历
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="interviewForm.$show()" ng-show="$parent.editable && !interviewForm.$visible">Edit</button>
+        </div>
+
+        <form editable-form name="interviewForm" onaftersave="saveInterview($data)" onshow="storeInterview()" oncancel="cancelInterview()">
+            <div class="profile_content" ng-repeat="elem in ($profile.interview || [])">
+                <div editable-text="elem.company" e-form="interviewForm" e-name="company" e-placeholder="company">{{elem.company}}</div>
+            </div>
+
+            <div class="profile_content" ng-show="interviewForm.$visible">
+                <div class="profile_add_delete_div">
+                    <span ng-click="addInterview()" class="profile_add_delete">+ Add More</span>
+                    <span ng-click="deleteInterview()" class="profile_add_delete">- Delete Last</span>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="interviewForm.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="interviewForm.$waiting" ng-click="interviewForm.$cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+    <!-- 自我介绍 -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            自我介绍
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="descriptForm.$show()" ng-show="$parent.editable && !descriptForm.$visible">Edit</button>
+        </div>
+
+        <form editable-form name="descriptForm" onbeforesave="saveData($data)" class="profile_descriptForm_only_for_input_adjustment" onshow="checkDescipt()">
+            <div ng-show="descriptForm.$visible" class="profile_content" editable-textarea="$profile.self_description_detail" e-rows="7" e-cols="40" e-name="self_description_detail"><pre>{{$profile.self_description_detail}}</pre></div>
+            <div ng-hide="descriptForm.$visible" class="profile_content" style="word-wrap: break-word;" ng-bind-html="HTMLself_description_detail()"></div>
+
+            <div ng-click="self_description_detail_pop()" class="self_description_pop_button" ng-show="!$parent.editable || descriptForm.$visible">不知道写什么?</div>
+
+            <div class="profile_content" ng-show="descriptForm.$visible">
+                <button type="submit" class="btn btn-primary" ng-disabled="descriptForm.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="descriptForm.$waiting" ng-click="descriptForm.$cancel()">Cancel</button>
+            </div>
+        </form>
+
+        <div ng-show="self_description_detail_checked" class="profile_descriptForm_popup">
+            <span class="glyphicon glyphicon-remove pull-right" ng-click="self_description_detail_close()" style="margin-right: -10px;margin-top: -10px;color:#aca075"></span>
+            不知道如何介绍自己?小编给您提供一个供参考的模版!
+            <br>
+            您做过的项目:_______
+            <br>
+            您在职业或兴趣方面的成功经验:_______
+            <br>
+            其它想对学员说的话:_______
+            <br><br>
+            效果预览:
+            <br>
+            我是 Joanne, 我现在在 Citibank 担任 Analyst,
+            <br>
+            我毕业于 UC Berkley, 读的 Accounting 专业。
+            <br>
+            工作期间,我做过的项目包括:_______
+            <br>
+            我可以在_______这些方面帮助你。
+            <br>
+            <span style="border-bottom: 1px solid;">希望我的经验可以帮助到你!</span>
+            <br>
+        </div>
+    </div>
+
+
+    <!-- 一句话简介 -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            一句话简介
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="descriptShortForm.$show()" ng-show="$parent.editable && !descriptShortForm.$visible">Edit</button>
+            <div ng-show="self_description_simple_checked" class="profile_descriptShortForm_popup">
+                <span class="glyphicon glyphicon-remove pull-right" ng-click="self_description_simple_close()" style="margin-right: -10px;margin-top: -10px;color:#aca075"></span>
+                看看别人都怎么写:
+                <br>
+                如何在non- target school 脱颖而出成为当年唯一banking录取者
+                <br>
+                Incoming GS banker 教你如何在大学赢在起跑线上
+                <br>
+                国内本科毕业背景教你进入纽约四大
+                <br>
+            </div>
+        </div>
+
+        <form  editable-form name="descriptShortForm" onbeforesave="saveData($data)" class="profile_descriptShortForm_only_for_input_adjustment" onshow="checkDesciptShort()">
+            <div ng-show="descriptShortForm.$visible" class="profile_content" editable-textarea="$profile.self_description_simple" e-rows="2" e-cols="400" e-name="self_description_simple"><pre>{{$profile.self_description_simple}}</pre></div>
+            <div ng-hide="descriptShortForm.$visible" class="profile_content" style="word-wrap: break-word;" ng-bind-html="HTMLself_description_simple()"></div>
+
+            <div ng-click="self_description_simple_pop()" class="self_description_pop_button" ng-show="!$parent.editable || descriptShortForm.$visible">不知道写什么?</div>
+
+            <div class="profile_content" ng-show="descriptShortForm.$visible">
+                <button type="submit" class="btn btn-primary" ng-disabled="descriptShortForm.$waiting">Save</button>
+                <button type="button" class="btn btn-default" ng-disabled="descriptShortForm.$waiting" ng-click="descriptShortForm.$cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- 导师日程 -->
+    <!-- use editable table -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            导师日程 <span style="font-size:50%; color:#9a9a9a">&nbsp;&nbsp;（请统一参照东部时间填写以避免时区的混淆）</span>
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="availabilityForm.$show()" ng-show="$parent.editable && !availabilityForm.$visible">Edit</button>
+        </div>
+
+        <form editable-form name="availabilityForm" onaftersave="saveAvailability($data)" onshow="storeAvailability()">
+            <div class="profile_content" ng-repeat="item in ($profile.availability || [])">
+                <select ng-model="item.day" ng-disabled="!availabilityForm.$visible">
+                    <option value="" disabled="disabled" selected="selected">day</option>
+                    <option ng-repeat="(key, value) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" value="{{key + 1}}">
+                        {{value}}
+                    </option>
+                </select>
+
+                <select ng-model="item.start" ng-disabled="!availabilityForm.$visible">
+                    <option value="" disabled="disabled" selected="selected">start time</option>
+                    <option ng-repeat="value in [] | range:24" value="{{value}}">
+                        {{value}}:00
+                    </option>
+                </select>
+
+                <select ng-model="item.end" ng-disabled="!availabilityForm.$visible">
+                    <option value="" disabled="disabled" selected="selected">end time</option>
+                    <option ng-repeat="value in [] | range:24" value="{{value}}">
+                        {{value}}:00
+                    </option>
+                </select>
+            </div>
+
+            <div class="profile_content" ng-show="availabilityForm.$visible">
+                <div class="profile_add_delete_div">
+                    <span ng-click="addMoreAvailability()" class="profile_add_delete">+ Add More</span>
+                    <span ng-click="deleteAvailability()" class="profile_add_delete">- Delete Last</span>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="availabilityForm.$waiting">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- 服务与定价 -->
+    <!-- use editable table -->
+    <div class="profile_panel" ng-show="$profile.is_mentor">
+        <div class="profile_header">
+            服务与定价
+            <button type="button" class="btn-link pull-right profile_edit_button" ng-click="ServicePriceForm.$show()" ng-show="$parent.editable && !ServicePriceForm.$visible">Edit</button>
+        </div>
+
+        <form editable-form name="ServicePriceForm" onaftersave="saveServicePrice($data)" onshow="checkServicePrice()">
+            <div class="profile_content" ng-repeat="item in ($profile.service_price || [])" class="row">
+                <div class="">
+                    <div class="" style="display:inline-block;width:300px;vertical-align: middle;" ng-click="!ServicePriceForm.$visible || setService(item.type)">
+                        <input class="check_box" type="checkbox" ng-model="item.check" ng-disabled="!ServicePriceForm.$visible"><label></label>
+                        <div class="checklist_option">{{item.type}}</div>
+                    </div>
+                    <div class="" style="display:inline-block;width:200px;vertical-align: middle;">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" min="0" max="10000" ng-model="item.price" class="form-control input-sm" ng-disabled="!item.check || !ServicePriceForm.$visible">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile_content" ng-show="ServicePriceForm.$visible">
+                <button type="submit" class="btn btn-primary" ng-disabled="ServicePriceForm.$waiting">Save</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+

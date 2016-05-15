@@ -1,0 +1,73 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Self intro</h4>
+  </div>
+    <textarea placeholder="intro" ng-model="seldescdetail"
+       type="text" class="form-control panel-body">
+    </textarea>
+  <!-- End panel body -->          
+</div> <!-- End panel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">One sentence</h4>
+  </div>
+    <textarea placeholder="intro" ng-model="seldescsimple"
+       type="text" class="form-control panel-body">
+    </textarea>   
+</div> <!-- End panel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">Time availability</h4>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="item in availability">
+  <select ng-model="item.day">
+    <option value="" disabled="disabled" selected="selected">day</option>
+    <option ng-repeat="(key, value) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" value="{{key + 1}}">
+    {{value}}
+    </option>
+  </select>
+
+  <select ng-model="item.start">
+    <option value="" disabled="disabled" selected="selected">start time</option>
+    <option ng-repeat="value in [] | range:24" value="{{value}}">
+    {{value}}:00
+    </option>
+  </select>
+
+  <select ng-model="item.end">
+    <option value="" disabled="disabled" selected="selected">end time</option>
+    <option ng-repeat="value in [] | range:24" value="{{value}}">
+    {{value}}:00
+    </option>
+    </select>
+</div>
+<button ng-click="addMoreAvailability()" class="btn btn-danger">Add more availability</button>
+  </div> <!-- End panel body -->          
+</div> <!-- End panel -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>service & price</h1>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="item in servicePrice" class="row">
+    <div class="col-sm-6">
+    <div class="col-sm-6">
+      <input type="checkbox" ng-model="item.check">
+      <label>{{item.type}}</label>
+    </div>
+    <div class="col-sm-6">
+      <div class="input-group">
+
+      <span class="input-group-addon" >price </span>
+      <input type="number" min="0" max="10000" ng-model="item.price" class="form-control input-sm" ng-disabled="!item.check">
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</div>

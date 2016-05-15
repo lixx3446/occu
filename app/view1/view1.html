@@ -1,0 +1,241 @@
+<div ng-app="view1" ng-controller="View1Ctrl as view1">
+    <nav class="navbar navbar-default navbar-custom">
+	  	<div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    	<div class="navbar-header">
+	      		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      		</button>
+	      <a class="navbar-brand" href="#">OCCU</a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	      	<form class="navbar-form navbar-left navbar-form-custom" role="search">
+	        	<div class="form-group">
+	        		<div class="input-group">
+		        		
+		        		<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+		          		<input type="text" class="form-control" >
+		          		
+		          		
+	        		</div>
+
+	        		
+	        	</div>
+
+	      	</form>
+	      	<ul class="nav navbar-nav navbar-right">
+	        	<li role="presentation" ><a ui-sref="register">成为导师</a></li>
+                <li role="presentation" ><a ui-sref="register">成为学员</a></li>
+                <li role="presentation" id="loginLink"><a ui-sref="login" if-not-user>登录</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+     <!--******************Navbar responsive problem fixed******************-->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="row">
+                    <div class="col-xs-4 col-xs-offset-4">
+                        <img class="img-responsive center-block" src="images/cs_ui/center0.png">
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div class="row text-center center-block">
+            <h2 class="text-center" style="color:#aca075;">多行业经验分享平台，让职场尽在掌控</h2>
+            <a href="/#/view3"><button type="button" class="btn btn-primary btn-lg">浏览导师</button></a>
+        </div>
+        <img class="img-responsive" src="images/index.bmp">
+        
+        <div class="row text-center" style="margin-bottom:30px;">
+            <div class="col-md-4 col-md-offset-4" style="border-bottom:solid 3px #aca075;">
+                <h1 class="h-index">为什么选择OCCU</h1>
+            </div>
+        </div>
+                        <!--**************Responsive problem fixed above*****************-->
+
+
+
+
+        <div class="row">
+            <div class="col-md-5 col-sm-6 block-1-1">
+                <div class="row block-1-2">
+                    <div class="col-xs-6 col-xs-offset-6 block-1-3">
+                        <h2>学员为何选择OCCU</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-6 block-2-1">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h2><span class="glyphicon glyphicon-ok"></span>  实名审核导师资质，咨询质量有保证</h2>
+                        <h2><span class="glyphicon glyphicon-ok"></span> 平台可以根据学员需求个性化只能推荐导师</h2>
+                        <h2><span class="glyphicon glyphicon-ok"></span> OCCU平台拥有市场最多元化的导师资源</h2>
+                        <h2><span class="glyphicon glyphicon-ok"></span> 学员将获得更多机会认识行业的前辈</h2>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 col-sm-6 block-4-1 visible-xs-block">
+                <div class="block-boy"></div>
+                <div class="row block-4-2">
+                    <div class="col-xs-6 col-xs-offset-1 block-4-3">
+                        <h2>导师为何选择OCCU</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-6 block-3-1">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h2><span class="glyphicon glyphicon-ok"></span>  不要求导师公开实名及照片，隐私性更有保证</h2>
+                        <h2><span class="glyphicon glyphicon-ok"></span> 导师自主拟定咨询定价，盈利更透明</h2>
+                        <h2><span class="glyphicon glyphicon-ok"></span> OCCU支持各行业地区及工作阶段的导师加入我们</h2>
+                        <h2><span class="glyphicon glyphicon-ok"></span> 开展有效人脉交际，扩大你的盟友队伍</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 col-sm-6 block-4-1 hidden-xs">
+                <div class="block-boy"></div>
+                <div class="row block-4-2">
+                    <div class="col-xs-6 col-xs-offset-1 block-4-3">
+                        <h2>导师为何选择OCCU</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center" style="margin-bottom:30px;">
+            <div class="col-md-4 col-md-offset-4" style="border-bottom:solid 3px #aca075; margin-bottom:10px">
+                <h1 class="h-index">关于导师</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 visible-xs-block">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                        <img  class="img-responsive" src="images/cs_ui/center.png">
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-2 about">
+                        <h2>他们在哪里工作</h2>
+                        <img class="img-responsive" src="images/cs_ui/left1.png">
+                        <h2>他们来自哪里</h2>
+                        <img class="img-responsive" src="images/cs_ui/left2.png">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 hidden-xs">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
+                        <img  class="img-responsive" src="images/cs_ui/center.png">
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="row">
+                    <div class="col-md-10 about">
+                        <h2>他们来自哪些行业</h2>
+                        <img class="img-responsive" src="images/cs_ui/right1.png">
+                        <h2>工作以外的他们</h2>
+                        <img class="img-responsive" src="images/cs_ui/right2.png">
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row text-center" style="margin-bottom:30px;">
+            <div class="col-md-4 col-md-offset-4" style="border-bottom:solid 3px #aca075;">
+                <h1 class="h-index">玩转OCCU</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="background:#3f4149;color:white;">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 intro">
+                        <h1>导师</h1>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-pencil"></i>OCCU平台填写资料</li>
+                            <li><i class="fa-li fa fa-trophy"></i>通过实名审核、获得OCCU导师资格</li>
+                            <li><i class="fa-li fa fa-calendar"></i>自主服务定价+选择咨询时段</li>
+                            <li><i class="fa-li fa fa-clock-o"></i>等待+确认学员咨询预约</li>
+                            <li><i class="fa-li fa fa-phone"></i>OCCU将为您准点发起与学员的电话会议</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-6" style="background:#d7ceb1;color:white;">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 intro">
+                        <h1>学员</h1>
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-user"></i>注册并填写个人资料</li>
+                            <li><i class="fa-li fa fa-compass"></i>自主选择导师/选择OCCU为您推荐的导师</li>
+                            <li><i class="fa-li fa fa-hand-o-up"></i>选择服务内容+时间，预约导师</li>
+                            <li><i class="fa-li fa fa-money"></i>收到确认并付款</li>
+                            <li><i class="fa-li fa fa-mobile-phone"></i>OCCU将为您准点发起与导师的电话会议</li>
+                        </ul>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="border-top:solid 3px #aca075;padding-top:50px;margin-top:50px">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4">
+                        <img class="img-responsive center-block" src="images/cs_ui/center0.png">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-2 col-xs-8 col-xs-offset-2">
+                        <h2>多行业经验分享平台，让职场尽在掌握</h2>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row text-center" style="padding-top:40px;">
+                    <div class="col-md-3 col-md-offset-1">
+                        <h2>联系我们</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>招贤纳士</h2>                        
+                    </div>
+                    <div class="col-md-3">
+                        <h2>用户协议</h2>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+
+
+    </div>
+</div>
+      
+

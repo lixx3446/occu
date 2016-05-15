@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<body ng-app="myApp.dashboard">
+
+
+<div class="container" style="margin-top:20px;"  ng-controller="dashboardCtrl">
+
+  <div class="row clearfix" style="margin-bottom:10px;">
+    <div class="controls form-inline form-group">
+
+      <h1>basic info</h1>
+      <div class="col-md-2">
+        <input id="fName" name="fName"  placeholder="First Name" ng-model="fName"
+               type="text" class="form-control input-small">
+      </div>
+
+
+      <div class="col-md-2">
+        <input id="lName" name="lName"  placeholder="Last Name" ng-model="lName"
+               type="text" class="form-control input-small">
+      </div>
+      <br>
+      <br>
+
+      <div class="col-md-2">
+        <input id="nickname" name="nickname"  placeholder="Username" ng-model="nickname"
+               type="text" class="form-control input-small">
+      </div>
+      <br>
+      <br>
+
+
+
+      <h1>education background</h1>
+        <div ng-repeat="item in education">
+          <input type="text" placeholder="University" ng-model="item.university" class="form-control input-small">
+          <input type="text" placeholder="Year" ng-model="item.year" class="form-control input-small">
+          <input type="text" placeholder="Major" ng-model="item.major" class="form-control input-small">
+        </div>
+      <button ng-click="addMoreEducation()" class="btn btn-danger">Add more education</button>
+      <br>
+      <br>
+
+
+      <h1>interview experience</h1>
+      <div ng-repeat="item in interviewExp">
+        <input type="text" placeholder="Company" ng-model="item.company" type="text" class="form-control input-small">
+      </div>
+      <button ng-click="addMoreInterviewExp()" class="btn btn-danger">Add more interview experience</button>
+      <br>
+      <br>
+
+      <h1>working experience</h1>
+      <div ng-repeat="item in workingExp">
+        <input type="text" placeholder="Time" ng-model="item.time" class="form-control input-small">
+        <input type="text" placeholder="Company" ng-model="item.company" class="form-control input-small">
+        <input type="text" placeholder="Position" ng-model="item.position" class="form-control input-small">
+        <input type="text" placeholder="Location" ng-model="item.location" class="form-control input-small">
+      </div>
+      <button ng-click="addMoreWorkingExp()" class="btn btn-danger">Add more working experience</button>
+      <br>
+      <br>
+
+
+      <h1>self intro</h1>
+      <div class="col-md-2">
+        <input id="seldescdetail" name="seldescdetail"  placeholder="template" ng-model="seldescdetail"
+               type="text" class="form-control input-small">
+      </div>
+      <br>
+      <br>
+
+      <h1>self intro simple version</h1>
+      <div class="col-md-2">
+        <input id="seldescsimple" name="seldescsimple"  placeholder="template" ng-model="seldescsimple"
+               type="text" class="form-control input-small">
+      </div>
+      <br>
+      <br>
+
+
+      <h1>time availability</h1>
+        <div ng-repeat="item in availability">
+          <select ng-model="item.day">
+            <option value="" disabled="disabled" selected="selected">day</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+            <option value="7">Sunday</option>
+          </select>
+
+          <select ng-model="item.start">
+            <option value="" disabled="disabled" selected="selected">start time</option>
+            <option value="0">0:00</option>
+            <option value="1">1:00</option>
+            <option value="2">2:00</option>
+            <option value="3">3:00</option>
+            <option value="4">4:00</option>
+            <option value="5">5:00</option>
+            <option value="6">6:00</option>
+            <option value="7">7:00</option>
+            <option value="8">8:00</option>
+            <option value="9">9:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+          </select>
+
+          <select ng-model="item.end">
+            <option value="" disabled="disabled" selected="selected">end time</option>
+            <option value="0">0:00</option>
+            <option value="1">1:00</option>
+            <option value="2">2:00</option>
+            <option value="3">3:00</option>
+            <option value="4">4:00</option>
+            <option value="5">5:00</option>
+            <option value="6">6:00</option>
+            <option value="7">7:00</option>
+            <option value="8">8:00</option>
+            <option value="9">9:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+            <option value="20">20:00</option>
+            <option value="21">21:00</option>
+            <option value="22">22:00</option>
+            <option value="23">23:00</option>
+          </select>
+        </div>
+      <button ng-click="addMoreAvailability()" class="btn btn-danger">Add more availability</button>
+
+
+      <h1>service & price</h1>
+        <div ng-repeat="item in servicePrice">
+
+          <input type="checkbox" ng-model="item.check">
+          <label>{{item.type}}</label>
+
+          <label>price </label>
+          <input type="number" min="0" max="10000" ng-model="item.price" class="form-control input-small">
+        </div>
+
+      <div class="col-md-2">
+        <button ng-click="updRecordPost()" id="btnAdd" name="btnAdd" class="btn btn-danger">Submit</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+

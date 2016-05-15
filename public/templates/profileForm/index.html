@@ -1,0 +1,356 @@
+<div ng-include="'/partials/navbar/'"></div>
+
+<div class="container-fluid" ng-show="rightUser" id="profileForm">
+	<div class="row">
+        <!--left column-->
+        <div class="col-md-3">
+            <div class="apply_mentor_menu">
+                <div style="margin:60px 0px; width:120px;">
+                    <h2>填写步骤</h2>
+                </div>
+                <div class="apply_mentor_menu_block">
+                    <h3 style="margin:60px 0px;">基本信息</h3>
+                    <h3 style="margin:60px 0px;">教育背景</h3>
+                    <h3 style="margin:60px 0px;">工作经历</h3>
+                    <h3 style="margin:60px 0px;">面试经历</h3>
+                </div>
+                <div class="apply_mentor_menu_block">
+                    <h3 style="margin:60px 0px;">自我介绍</h3>
+                    <h3 style="margin:60px 0px;">一句话简介</h3>
+                    <h3 style="margin:60px 0px;">导师日程</h3>
+                    <h3 style="margin:60px 0px;">服务与定价</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!--right column-->
+        <!--page 1-->
+        <div class="col-md-8" ng-show="page1">
+            <div class="apply_mentor_header">
+                <h1>资料完善</h1>
+                <hr width="20%" style="margin:auto;border:1px solid #319cc6">
+                <h5>所有信息请用英文填写</h5>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">基本信息</h2>
+                <div class="apply_mentor_panel">
+                    <h4>First name<span style="font-size:60%; color:#9a9a9a">&nbsp;&nbsp;(仅自己可见)</span></h4>
+                    <input ng-model="$profile.firstname" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.firstname" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required</span>
+                    <h4>Last name<span style="font-size:60%; color:#9a9a9a">&nbsp;&nbsp;(仅自己可见)</span></h4>
+                    <input ng-model="$profile.lastname" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.lastname" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required</span>
+                    <h4>Phone number<span style="font-size:60%; color:#9a9a9a">&nbsp;&nbsp;(仅自己可见)</span></h4>
+                    <input ng-model="$profile.phone" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.phone" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required</span>
+
+                    <h4 id="cli">Username</h4>
+                    <input ng-model="$profile.nickname" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.nickname" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required</span>
+
+                    <h4>Gender</h4>
+                    &nbsp;&nbsp;<input ng-model="$profile.gender" type="radio" value="male" class="" style="display: inline-block;">&nbsp;&nbsp;Male<span ng-show="required.gender" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required</span>
+                    &nbsp;&nbsp;<input ng-model="$profile.gender" type="radio" value="female" class="" style="display: inline-block;">&nbsp;&nbsp;Female<span ng-show="required.gender" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required</span>
+
+                    <h4>Icon</h4>
+                    <!-- This wraps the whole cropper -->
+                    <div id="image-cropper">
+                        <input type="file" class="cropit-image-input" />
+                        <div id="hiddenDiv" style="display:none;width:200px;">
+                            <div class="cropit-preview" style="width:200px;height:250px;"></div>
+                            <input type="range" class="cropit-image-zoom-input" style="width:130px;height:40px;margin:auto;"/>
+                            <div style="width:80px;margin:auto;">
+                                <button id="upload-btn" class="btn btn-primary" style="width:80px;">Upload</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--
+                    <input class="bottom-marg-15" type="file" name="file" file style="display:inline-block">
+                    <button ng-click="upload()">UPLOAD</button><span ng-show="required.icon" style="color:#319cc6;font-weight: bold;">&nbsp;&nbsp;Required(You need to click to UPLOAD)</span>
+                    -->
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">教育背景</h2>
+                <div class="apply_mentor_panel" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><h4 style="display: inline-block;">University</h4><span ng-show="required.educationUniv" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Year</h4><span ng-show="required.educationYear" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Major</h4><span ng-show="required.educationMajo" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Degree</h4><span ng-show="required.educationDegr" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in ($profile.education || [])">
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.university"></td>
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.year"></td>
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.major"></td>
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.degree"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="apply_mentor_add_delete_div">
+                        <span ng-click="addMoreEducation()" class="apply_mentor_add_delete_button">+ Add More</span>
+                        <span ng-click="deleteEducation()" class="apply_mentor_add_delete_button">- Delete Last</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">工作经历</h2>
+                <div class="apply_mentor_panel" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><h4 style="display: inline-block;">Time</h4><span ng-show="required.jobTime" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Company</h4><span ng-show="required.jobComp" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Position</h4><span ng-show="required.jobPosi" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Location</h4><span ng-show="required.jobLoca" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in ($profile.job || [])">
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.time"></td>
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.company"></td>
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.position"></td>
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.location"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="apply_mentor_add_delete_div">
+                        <span ng-click="addMoreJob()" class="apply_mentor_add_delete_button">+ Add More</span>
+                        <span ng-click="deleteJob()" class="apply_mentor_add_delete_button">- Delete Last</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">面试经历</h2>
+                <div class="apply_mentor_panel" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><h4 style="display: inline-block;">Company Name</h4><span ng-show="required.interview" style="color:#319cc6;">&nbsp;&nbsp;Required</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in ($profile.interview || [])">
+                            <td><input class="form-control" type="text" style="width:180px" ng-model="item.company"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="apply_mentor_add_delete_div">
+                        <span ng-click="addMoreInterview()" class="apply_mentor_add_delete_button">+ Add More</span>
+                        <span ng-click="deleteInterview()" class="apply_mentor_add_delete_button">- Delete Last</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="apply_mentor_submit_button_div">
+                <button ng-click="toSecondPage()" class="apply_mentor_submit_button">下一页</button>
+            </div>
+		</div>
+
+
+
+
+
+        <!--right column-->
+        <!--page 2-->
+        <div class="col-md-8" ng-show="page2">
+            <div class="apply_mentor_header">
+                <h1>资料完善</h1>
+                <hr width="20%" style="margin:auto;border:1px solid #319cc6">
+                <h5>所有信息请用英文填写</h5>
+            </div>
+
+            <div>
+                <h2 class="apply_mentor_subheader">自我介绍</h2>
+                <div class="apply_mentor_panel">
+                    <div style="margin:20px 0px;">
+                        <textarea class="form-control" ng-model="$profile.self_description_detail" style="height:200px;"></textarea>
+
+                        <div ng-click="self_description_detail_pop()" class="self_description_pop_button" style="float:right;">不知道写什么?</div>
+
+                        <div ng-show="self_description_detail_checked" class="profile_descriptForm_popup" style="margin-top: -200px;">
+                            <span class="glyphicon glyphicon-remove pull-right" ng-click="self_description_detail_close()" style="margin-right: -10px;margin-top: -10px;color:white"></span>
+                            不知道如何介绍自己?小编给您提供一个供参考的模版!
+                            <br>
+                            您做过的项目:_______
+                            <br>
+                            您在职业或兴趣方面的成功经验:_______
+                            <br>
+                            其它想对学员说的话:_______
+                            <br><br>
+                            效果预览:
+                            <br>
+                            我是 Joanne, 我现在在 Citibank 担任 Analyst,
+                            <br>
+                            我毕业于 UC Berkley, 读的 Accounting 专业。
+                            <br>
+                            工作期间,我做过的项目包括:_______
+                            <br>
+                            我可以在_______这些方面帮助你。
+                            <br>
+                            <span style="border-bottom: 1px solid;">希望我的经验可以帮助到你!</span>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">一句话简介</h2>
+                <div class="apply_mentor_panel">
+                    <div style="margin:20px 0px;">
+                        <textarea class="form-control" ng-model="$profile.self_description_simple" style="height:100px;"></textarea>
+
+                        <div ng-click="self_description_simple_pop()" class="self_description_pop_button" style="float:right;">不知道写什么?</div>
+
+                        <div ng-show="self_description_simple_checked" class="profile_descriptShortForm_popup"style="margin-top: -60px;">
+                            <span class="glyphicon glyphicon-remove pull-right" ng-click="self_description_simple_close()" style="margin-right: -10px;margin-top: -10px;color:white"></span>
+                            看看别人都怎么写:
+                            <br>
+                            如何在non- target school 脱颖而出成为当年唯一banking录取者
+                            <br>
+                            Incoming GS banker 教你如何在大学赢在起跑线上
+                            <br>
+                            国内本科毕业背景教你进入纽约四大
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">导师日程</h2>
+                <div class="apply_mentor_panel" class="">
+
+                    <div class="profile_content" ng-repeat="item in ($profile.availability || [])">
+                        <select ng-model="item.day">
+                            <option value="" disabled="disabled" selected="selected">day</option>
+                            <option ng-repeat="(key, value) in ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']" value="{{key + 1}}">
+                                {{value}}
+                            </option>
+                        </select>
+
+                        <select ng-model="item.start">
+                            <option value="" disabled="disabled" selected="selected">start time</option>
+                            <option ng-repeat="value in [] | range:24" value="{{value}}">
+                                {{value}}:00
+                            </option>
+                        </select>
+
+                        <select ng-model="item.end">
+                            <option value="" disabled="disabled" selected="selected">end time</option>
+                            <option ng-repeat="value in [] | range:24" value="{{value}}">
+                                {{value}}:00
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="profile_content">
+                        <div class="profile_add_delete_div">
+                            <span ng-click="addMoreAvailability()" class="profile_add_delete">+ Add More</span>
+                            <span ng-click="deleteAvailability()" class="profile_add_delete">- Delete Last</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">服务与定价</h2>
+                <div class="apply_mentor_panel" class="">
+
+                    <div class="profile_content" ng-repeat="item in ($profile.service_price || [])" class="row">
+                        <div class="">
+                            <div class="" style="display:inline-block;width:300px;vertical-align: middle;" ng-click="setService(item.type)">
+                                <input class="check_box" type="checkbox" ng-model="item.check"><label></label>
+                                <div class="checklist_option">{{item.type}}</div>
+                            </div>
+                            <div class="" style="display:inline-block;width:200px;vertical-align: middle;">
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="number" min="0" max="10000" ng-model="item.price" class="form-control input-sm" ng-disabled="!item.check">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="">
+                <div class="col-md-6">
+                    <div style="margin: auto;width: 200px;">
+                        <button ng-click="toFirstPage()" class="apply_mentor_submit_button">上一页</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div style="margin: auto;width: 200px;">
+                        <button ng-click="submit()" class="apply_mentor_submit_button">完成</button>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog" style="margin-top:150px;">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content modalWindow">
+
+                            <div class="modal-body" style="margin-top:30px;">
+                                <p>您的个人档案已更新成功!</p>
+                                <p>如果想要更改,请点击右上角个人中心修改</p>
+                            </div>
+                            <button type="button" class="btn btn-default btn-primary" data-dismiss="modal" style="margin-bottom:30px;">返回首页</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Modal -->
+                <div id="myModal2" class="modal fade" role="dialog" style="margin-top:150px;">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content modalWindow">
+
+                            <div class="modal-body" style="margin-top:30px;">
+                                <p>发生错误,请稍后再试</p>
+                            </div>
+                            <button type="button" class="btn btn-default btn-primary" data-dismiss="modal" style="margin-bottom:30px;">返回首页</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container-fluid" ng-hide="rightUser">
+    <div style="text-align: center; font-size: 30px">Sorry, please login right account</div>
+</div>

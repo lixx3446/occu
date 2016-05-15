@@ -1,0 +1,164 @@
+<div ng-include="'/partials/navbar/'"></div>
+
+<div class="container-fluid" ng-show="rightUser">
+	<div class="row">
+        <!--left column-->
+        <div class="col-md-3">
+            <div class="apply_mentor_menu">
+                <div style="margin:60px 0px; width:120px;">
+                    <h2>申请步骤</h2>
+                </div>
+                <div class="apply_mentor_menu_block">
+                    <h3 style="margin:60px 0px;">基本信息</h3>
+                    <h3 style="margin:60px 0px;">教育背景</h3>
+                    <h3 style="margin:60px 0px;">工作经历</h3>
+                </div>
+                <div class="apply_mentor_menu_block">
+                    <h3 style="margin:60px 0px;">提交审核</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!--right column-->
+		<div class="col-md-8">
+            <div class="apply_mentor_header">
+                <h1>导师申请</h1>
+                <hr width="20%" style="margin:auto;border:1px solid #319cc6">
+                <h5>所有信息请用英文填写</h5>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">基本信息</h2>
+                <div class="apply_mentor_panel">
+                    <h4>First name<span style="font-size:60%; color:#9a9a9a">&nbsp;&nbsp;(仅自己可见)</span></h4>
+                    <input ng-model="firstName" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.firstName" style="color:#ACA075;font-weight: bold;">&nbsp;&nbsp;Required</span>
+                    <h4>Last name<span style="font-size:60%; color:#9a9a9a">&nbsp;&nbsp;(仅自己可见)</span></h4>
+                    <input ng-model="lastName" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.lastName" style="color:#ACA075;font-weight: bold;">&nbsp;&nbsp;Required</span>
+                    <h4>Phone number<span style="font-size:60%; color:#9a9a9a">&nbsp;&nbsp;(仅自己可见)</span></h4>
+                    <input ng-model="phoneNumber" type="text" class="form-control" style="width:200px;display: inline-block;"><span ng-show="required.phoneNumber" style="color:#ACA075;font-weight: bold;">&nbsp;&nbsp;Required</span>
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">教育背景</h2>
+                <div class="apply_mentor_panel" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><h4 style="display: inline-block;">University</h4><span ng-show="required.educationUniv" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                                <th><h4 style="display: inline-block;">Year</h4><span ng-show="required.educationYear" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                                <th><h4 style="display: inline-block;">Major</h4><span ng-show="required.educationMajo" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                                <th><h4 style="display: inline-block;">Degree</h4><span ng-show="required.educationDegr" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in education">
+                                <td><input ng-model="item.university" type="text" class="form-control" style="width:180px"></td>
+                                <td><input ng-model="item.year" type="text" class="form-control" style="width:180px"></td>
+                                <td><input ng-model="item.major" type="text" class="form-control" style="width:180px"></td>
+                                <td><input ng-model="item.degree" type="text" class="form-control" style="width:180px"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="apply_mentor_add_delete_div">
+                        <span ng-click="addMoreEducation()" class="apply_mentor_add_delete_button">+ Add More</span>
+                        <span ng-click="deleteEducation()" class="apply_mentor_add_delete_button">- Delete Last</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span style="color:#319cc6;margin:0px 10px 0px -20px;">*</span>&nbsp;
+                <h2 class="apply_mentor_subheader">工作经历<span style="font-size:40%;">&nbsp;&nbsp;&nbsp;&nbsp;或上传简历</span></h2>
+                <div class="apply_mentor_panel" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><h4 style="display: inline-block;">Time</h4><span ng-show="required.jobTime" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Company</h4><span ng-show="required.jobComp" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Position</h4><span ng-show="required.jobPosi" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                            <th><h4 style="display: inline-block;">Location</h4><span ng-show="required.jobLoca" style="color:#ACA075;">&nbsp;&nbsp;Required</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in job">
+                            <td><input ng-model="item.time" type="text" class="form-control" style="width:180px"></td>
+                            <td><input ng-model="item.company" type="text" class="form-control" style="width:180px"></td>
+                            <td><input ng-model="item.position" type="text" class="form-control" style="width:180px"></td>
+                            <td><input ng-model="item.location" type="text" class="form-control" style="width:180px"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="apply_mentor_add_delete_div">
+                        <span ng-click="addMoreJob()" class="apply_mentor_add_delete_button">+ Add More</span>
+                        <span ng-click="deleteJob()" class="apply_mentor_add_delete_button">- Delete Last</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="apply_mentor_subheader">上传简历<span style="font-size:40%;">&nbsp;&nbsp;&nbsp;&nbsp;或填写工作经历</span></h2>
+                <div class="apply_mentor_panel">
+                    <div style="margin-top:15px">
+                        &nbsp;&nbsp;
+                        <img ng-src="images/apply_mentor/1.png" style="height:18px; display:inline-block">
+                        <input class="bottom-marg-15" type="file" name="file" file style="display:inline-block">
+                    </div>
+                </div>
+            </div>
+            <div class="apply_mentor_submit_button_div">
+                <button ng-click="apply()" class="apply_mentor_submit_button">提交申请</button>
+
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog" style="margin-top:150px;">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+
+                            <div class="modal-body" style="margin-top:30px;">
+                                <p>您的导师申请已成功提交!</p>
+                                <p>我们将在24小时内通过邮件联系您</p>
+                                <p>如有需要,请联系我们</p>
+                            </div>
+                            <button type="button" class="btn btn-default btn-primary" data-dismiss="modal" style="margin-bottom:30px;">返回首页</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Modal -->
+                <div id="myModal2" class="modal fade" role="dialog" style="margin-top:150px;">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+
+                            <div class="modal-body" style="margin-top:30px;">
+                                <p>您已经提交过导师申请,请等待处理</p>
+                            </div>
+                            <button type="button" class="btn btn-default btn-primary" data-dismiss="modal" style="margin-bottom:30px;">返回首页</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid" ng-hide="rightUser">
+    <div style="text-align: center; font-size: 30px">Sorry, please login right account</div>
+</div>

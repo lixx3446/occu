@@ -1,0 +1,49 @@
+<div ng-include="'/partials/navbar/'"></div>
+<!-- why is there more than one navbar? can be changed later -->
+
+<div class="container ng-scope">
+        <div class="row">
+            <div class="col-sm-offset-4 col-xs-12 col-sm-4">
+                <p class="alert alert-success ng-hide" ng-show="created &amp;&amp; !enabled">Your account has been created. Please check your email for a verification link.</p>
+                <p ng-show="created &amp;&amp; !enabled" class="pull-right ng-hide"><a ui-sref="login">Back to Login</a></p>
+                <p class="alert alert-success ng-hide" ng-show="created &amp;&amp; enabled &amp;&amp; !authenticating">Your account has been created. <a ui-sref="login">Login Now</a>.</p>
+            </div>
+        </div>
+        <div class="row text-center center-block">
+            <h1 class="register-login-h1">occu</h1>
+            <h3 class="register-login-h3">多行业经验交流平台，让梦想尽在掌控</h3>
+        </div>
+
+        <div class="row" style="margin-top:40px">
+            <div class="col-xs-12">
+                <form class="form-horizontal ng-pristine ng-valid" ng-hide="created &amp;&amp; !authenticating" ng-submit="submit()">
+
+                    <div class="form-group">
+                        <label for="spFirstName" class="col-xs-12 col-sm-4 control-label"></label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="password" class="form-control ng-pristine ng-untouched ng-valid" id="spFirstName" ng-model="model.new_password" placeholder="密码" ng-disabled="creating"></div>
+                    </div>
+
+<!--                     <div class="form-group">
+                        <label for="spPassword" class="col-xs-12 col-sm-4 control-label"></label>
+                        <div class="col-xs-12 col-sm-4">
+                            <input type="password" class="form-control ng-pristine ng-untouched ng-valid" id="spPassword" ng-model="formModel.password" placeholder="密码" ng-disabled="creating"></div>
+                    </div>
+ -->                    <div class="form-group text-center center-block">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <p class="alert alert-danger ng-binding ng-hide" ng-show="error" ng-bind="error"></p>
+                            <button type="submit" class="btn btn-primary register-login-button" ng-disabled="creating" style="margin-top:50px;">Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Not in used yet i guess? -->
+                    <div class="form-group ng-hide" ng-show="socialLoginProviders.length">
+                        <div class="col-sm-offset-4 col-sm-4">
+                            <p>Or register with:</p>
+                            <!-- ngRepeat: provider in socialLoginProviders -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>

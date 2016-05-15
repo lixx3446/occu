@@ -1,0 +1,11 @@
+<div class="list-group">
+    <div>
+		 <img ng-src={{$profile.icon}} style="height:100px;display:inline-block;">
+		 <h4 style="display: inline-block;vertical-align:bottom">{{$profile.nickname || $profile.username}}</h4>
+    </div>
+	<a ng-repeat="p in ['Profile', 'Calendar', 'History', 'Message']" class="profile_menuDiv" ng-class="{active: isPage(p)}" ng-click="changePage(p)" style="font-familiy:'helevtica';font-size:18px;">
+        <img ng-src="images/profile/menu-{{$index}}.png" style="width:18px;margin-right:20px;">
+        {{p}}
+        <span class="glyphicon glyphicon-triangle-right pull-right" ng-show="isPage(p)" style="margin-right:-29px;color:#aca075"></span>
+	</a>
+</div>
